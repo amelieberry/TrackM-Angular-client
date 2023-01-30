@@ -1,0 +1,36 @@
+.movie-cards {
+    display: flex;
+}
+
+.movie-card {
+    flex: 1 1 auto;
+    margin: 10px;
+    width: 280px;
+}
+
+.movie-card-header {
+    padding-bottom: 16px;
+}
+
+.movie-card-actions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-card-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-card-actions-left {
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    font-size: small;
+    width: 100%;
+}
