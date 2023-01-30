@@ -1,1 +1,30 @@
-<p>welcome-page works!</p>
+<div class="main-page mat-app-background">
+    <h1>Welcome to Track'M</h1>
+    <div id="logo-container">
+      <div id="t-top">
+        <div class="dotted-line-top"></div>
+      </div>
+      <div id="main-clapper">
+        <div id="t-leg">
+          <div class="dotted-line-bottom"></div>
+        </div>
+        <p>M</p>
+      </div>
+    </div>
+      <button 
+        mat-raised-button 
+        (click)="openUserRegistrationDialog()" 
+        style="margin-right: 10px; width: 85px"
+        color="primary"
+        >
+        Sign Up
+      </button>
+      <button 
+        mat-raised-button 
+        (click)="openUserLoginDialog()" 
+        style="margin-left: 10px; width: 85px" 
+        color="primary"
+        >
+        Log In
+      </button>
+  </div>
