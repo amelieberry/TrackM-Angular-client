@@ -1,0 +1,94 @@
+.main-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.user-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::ng-deep form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.welcome-card {
+    min-width: 300px;
+    height: 300px;
+}
+
+#logo-container {
+    width: 150px;
+    height: 160px;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #t-top {
+    height: 8.3px;
+    width: 128.5px;
+    background-color: white;
+    border: solid 1px white;
+    position: relative;
+    animation: skew 3s infinite;
+    transform-origin: left top;
+    animation-direction: normal;
+  }
+
+  .dotted-line-top {
+    border-top: 4.5px dashed black;
+    border-bottom: 4.5px dashed black;
+    width: 128.5px;
+  }
+
+  #main-clapper {
+    background-color: black;
+    height: 86px;
+    width: 130px;
+    color: white;
+    font-size: 110px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  #main-clapper p {
+    margin: 0;
+    padding-top: 6px;
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    text-shadow: 0 -1px white;
+  }
+
+  #t-leg {
+    height: 80px;
+    width: 8.5px;
+    border: 1px solid white;
+    margin: 0;
+    margin-left: 18px;
+  }
+
+  .dotted-line-bottom {
+    border-right: 4.7px dashed white;
+    border-left: 4.7px dashed white;
+    height: 80px;
+  }
+
+  @keyframes skew {
+    0% {
+      transform: skewY(0deg);
+    }
+    100% {
+      transform: skewY(-9deg);
+    }
+  }
