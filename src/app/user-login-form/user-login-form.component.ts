@@ -32,9 +32,14 @@ export class UserLoginFormComponent {
   // send the form inputs to the backend
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
+
+      // set user in local storage
+      localStorage.setItem('username', result.user.Username);
+      localStorage.setItem('token', result.token);
+
       this.dialogRef.close();
       console.log(result);
-      this.snackBar.open(result, 'OK', {
+      this.snackBar.open('Logged-in successfully!', 'OK', {
         duration: 2000
       });
     }, (result) => {
