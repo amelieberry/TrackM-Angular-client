@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Angular Material Imports
 import { MatDialogRef } from '@angular/material/dialog'; // to close dialog on success
@@ -21,7 +22,8 @@ export class UserLoginFormComponent {
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   // called once the component has received all its inputs from the calling component
@@ -42,6 +44,7 @@ export class UserLoginFormComponent {
       this.snackBar.open('Logged-in successfully!', 'OK', {
         duration: 2000
       });
+      this.router.navigate(['movies']);
     }, (result) => {
       console.log(result);
       this.snackBar.open(result, 'OK', {
