@@ -28,7 +28,11 @@
                 </button>
             </div>
             <div class="movie-card-actions-left" style="padding-left: 0;">
-                <button mat-button color="primary">
+                <button 
+                mat-button 
+                color="primary"
+                (click)="openSummaryDialog(movie.Title, movie.Description)"
+                >
                     Read Synopsis<mat-icon>launch</mat-icon>
                 </button>
             </div>
