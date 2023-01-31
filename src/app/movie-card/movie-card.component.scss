@@ -1,13 +1,14 @@
 .movie-cards {
     flex-wrap: wrap;
     justify-content: center;
-    margin: 30px, 0;
+    margin: 30px 0;
 }
 
 .movie-card {
     margin: 10px;
     width: 280px;
     max-width: 280px;
+    justify-content: space-between;
 }
 
 .movie-card-header {
