@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
 
 @Component({
@@ -33,7 +34,7 @@ export class MovieCardComponent {
   }
 
   /**
-   * opens the MovieGenreComponent Dialog
+   * opens the MovieGenreComponent dialog
    * @param name 
    * @param description
    * @function openGenreDialog 
@@ -45,6 +46,24 @@ export class MovieCardComponent {
         Description: description,
       },
       width: '300px'
-    })
+    });
+  }
+
+  /**
+   * opens the MovieDirectorComponent dialog
+   * @param name 
+   * @param bio 
+   * @param birth
+   * @function openDirectorDialog 
+   */
+  openDirectorDialog(name: string, bio: string, birth: string) : void {
+    this.dialog.open(MovieDirectorComponent, {
+      data: {
+        Name: name,
+        Bio: bio,
+        Birth: birth,
+      },
+      width: '300px'
+    });
   }
 }
