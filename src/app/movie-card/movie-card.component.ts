@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MovieDirectorComponent } from '../movie-director/movie-director.component';
 import { MovieGenreComponent } from '../movie-genre/movie-genre.component';
@@ -12,13 +14,16 @@ import { MovieSummaryComponent } from '../movie-summary/movie-summary.component'
 })
 export class MovieCardComponent {
   movies: any[] = [];
+  favoriteMovies: any[] = [];
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar
     ) { }
 
   ngOnInit(): void {
     this.getMovies();
+    this.getFavorites();
   }
 
   /**
@@ -35,12 +40,51 @@ export class MovieCardComponent {
   }
 
   /**
+   * fetch favorite movies from FetchApiDataService service getUser()
+   * @returns an empty array or an array of movies favorited by the user
+   * @function getFavoriteMovies
+   */
+  getFavorites(): void {
+    this.fetchApiData.getUser().subscribe((resp: any) => {
+      this.favoriteMovies = resp.FavoriteMovies;
+      console.log(this.favoriteMovies);
+      return this.favoriteMovies;
+    });
+  }
+
+  toggleFavoriteMovies(id: string) {
+    if (!this.favoriteMovies.includes(id)) {
+      this.fetchApiData.addFavoriteMovie(id).subscribe((res) => {
+        this.favoriteMovies = res.FavoriteMovies;
+        this.snackBar.open('Added to favorites.', 'OK', {
+          duration: 3000
+        })
+      }, (res) => {
+        this.snackBar.open(res.message, 'OK', {
+          duration: 3000
+        });
+      })
+    } else {
+      this.fetchApiData.deleteFavoriteMovies(id).subscribe((res) => {
+        this.favoriteMovies = res.FavoriteMovies;
+        this.snackBar.open('Removed from favorites.', 'OK', {
+          duration: 3000
+        })
+      }, (res) => {
+        this.snackBar.open(res.message, 'OK', {
+          duration: 3000
+        });
+      })
+    }
+  }
+
+  /**
    * opens the MovieGenreComponent dialog
    * @param name 
    * @param description
    * @function openGenreDialog 
    */
-  openGenreDialog(name: string, description: string): void {
+  openGenreDialog(name: string, description: string) {
     this.dialog.open(MovieGenreComponent, {
       data: {
         Name: name,
