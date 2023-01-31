@@ -1,15 +1,21 @@
 .movie-cards {
-    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px, 0;
 }
 
 .movie-card {
-    flex: 1 1 auto;
     margin: 10px;
     width: 280px;
+    max-width: 280px;
 }
 
 .movie-card-header {
     padding-bottom: 16px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
 }
 
 .movie-card-actions-container {
