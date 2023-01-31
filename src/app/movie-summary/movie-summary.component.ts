@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-movie-summary',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./movie-summary.component.scss']
 })
 export class MovieSummaryComponent {
-
+  constructor(
+    @Inject(MAT_DIALOG_DATA) 
+      public data: {
+        Title: string,
+        Description: string,
+      }
+  ) {}
 }
