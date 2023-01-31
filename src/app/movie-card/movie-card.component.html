@@ -19,7 +19,11 @@
             </div>    
             <div class="movie-card-actions-left">
                 <p>By </p>
-                <button mat-button color="primary">
+                <button 
+                mat-button 
+                color="primary"
+                (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth)"
+                >
                     {{movie.Director.Name}}
                 </button>
             </div>
