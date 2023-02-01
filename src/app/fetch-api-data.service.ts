@@ -36,7 +36,7 @@ export class FetchApiDataService {
    * @function userLogin
    */
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    console.log('userLogin API POST', userDetails);
     return this.http.post(apiUrl + 'login', userDetails).pipe(
       catchError(this.handleError)
     );
@@ -73,7 +73,7 @@ export class FetchApiDataService {
    */
   getMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies' + title,
+    return this.http.get(apiUrl + 'movies/' + title,
       {
         headers: new HttpHeaders(
           {
@@ -96,7 +96,7 @@ export class FetchApiDataService {
    */
   getDirector(directorName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies' + 'Director' + directorName,
+    return this.http.get(`${apiUrl}movies/Director/${directorName}`,
       {
         headers: new HttpHeaders(
           {
@@ -119,7 +119,7 @@ export class FetchApiDataService {
    */
   getGenre(genreName: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'movies' + 'Genre' + genreName,
+    return this.http.get(`${apiUrl}movies/Genre/${genreName}`,
       {
         headers: new HttpHeaders(
           {
@@ -140,9 +140,9 @@ export class FetchApiDataService {
    * @function getUser
    */
   getUser(): Observable<any> {
-    const username = localStorage.getItem('user');
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users' + username,
+    return this.http.get(`${apiUrl}users/${username}`,
       {
         headers: new HttpHeaders(
           {
@@ -163,9 +163,9 @@ export class FetchApiDataService {
    * @function getFavoriteMovies
    */
   getFavoriteMovies(): Observable<any> {
-    const username = localStorage.getItem('user');
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users' + username,
+    return this.http.get(`${apiUrl}users/${username}`,
       {
         headers: new HttpHeaders(
           {
@@ -188,9 +188,9 @@ export class FetchApiDataService {
    * @function addFavoriteMovie
    */
   addFavoriteMovie(movieId: string): Observable<any> {
-    const username = localStorage.getItem('user');
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.post(apiUrl + 'users' + username + 'movies' + movieId,
+    return this.http.post(`${apiUrl}users/${username}/movies/${movieId}`,
       { FavoriteMovie: movieId },
       {
         headers: new HttpHeaders(
@@ -213,9 +213,9 @@ export class FetchApiDataService {
    * @function updateUser
    */
   updateUser(userDetails: any): Observable<any> {
-    const username = localStorage.getItem('user');
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.put(apiUrl + 'users' + username,
+    return this.http.put(apiUrl + 'users/' + username,
       userDetails,
       {
         headers: new HttpHeaders(
@@ -238,9 +238,9 @@ export class FetchApiDataService {
    * @function deleteFavoriteMovies
    */
   deleteFavoriteMovies(movieId: string): Observable<any> {
-    const username = localStorage.getItem('user');
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users' + username + 'movies' + movieId,
+    return this.http.delete(`${apiUrl}users/${username}/movies/${movieId}`,
       {
         headers: new HttpHeaders(
           {
@@ -261,9 +261,9 @@ export class FetchApiDataService {
    * @function deleteUser
    */
   deleteUser(): Observable<any> {
-    const username = localStorage.getItem('user');
+    const username = localStorage.getItem('username');
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users' + username,
+    return this.http.delete(apiUrl + 'users/' + username,
       {
         headers: new HttpHeaders(
           {
