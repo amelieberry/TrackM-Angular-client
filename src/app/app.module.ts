@@ -28,6 +28,7 @@ import { MovieGenreComponent } from './movie-genre/movie-genre.component';
 import { MovieDirectorComponent } from './movie-director/movie-director.component';
 import { MovieSummaryComponent } from './movie-summary/movie-summary.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
     MovieGenreComponent,
     MovieDirectorComponent,
     MovieSummaryComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
