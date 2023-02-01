@@ -42,7 +42,7 @@ export class MovieCardComponent {
   /**
    * fetch favorite movies from FetchApiDataService service getUser()
    * @returns an empty array or an array of movies favorited by the user
-   * @function getFavoriteMovies
+   * @function getFavorites
    */
   getFavorites(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
