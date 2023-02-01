@@ -3,37 +3,32 @@
     <mat-card *ngFor="let movie of movies; let i=index;" class="movie-card" style="flex: 1 1 auto;">
         <mat-card-header class="movie-card-header">
             <mat-card-title>
-                {{movie.Title}}
+                {{movie.Title | uppercase}}
             </mat-card-title>
         </mat-card-header>
-        <img style="width: 280px; margin: 0 auto;" src={{movie.ImagePath}} alt={{movie.Title}} />
-        <mat-card-actions class="movie-card-actions-container">
-            <div class="movie-card-actions">
-                <button 
-                mat-button 
-                
-                (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
-                >
-                    Genre
-                </button>
-                <button 
-                mat-button 
-                (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth)"
-                >
-                    Director
-                </button>
-                <button 
-                mat-button 
-                (click)="openSummaryDialog(movie.Title, movie.Description)"
-                >
-                    Summary
-                </button>
-                <button 
-                mat-mini-fab 
-                (click)="toggleFavoriteMovies(movie._id)">
-                    <mat-icon>{{favoriteMovies.includes(movie._id) ? 'favorite' : 'favorite_border'}}</mat-icon>
-                </button>
-            </div>
-        </mat-card-actions>
+        <!-- <mat-divider style="width: 90%; margin: 0 auto;" ></mat-divider> -->
+        <mat-card-content class="movie-card-content">
+            <img style="width: 170px;" src={{movie.ImagePath}} alt={{movie.Title}} />
+            <mat-card-actions class="movie-card-actions-container">
+                <!-- <div class="movie-card-actions"> -->
+                    <button mat-mini-fab (click)="toggleFavoriteMovies(movie._id)">
+                        <mat-icon>{{favoriteMovies.includes(movie._id) ? 'favorite' : 'favorite_border'}}</mat-icon>
+                    </button>
+                    <mat-divider style="width: 100%;"></mat-divider>
+                    <button mat-button (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)">
+                        Genre
+                    </button>
+                    <mat-divider style="width: 100%;"></mat-divider>
+                    <button mat-button
+                        (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio, movie.Director.Birth)">
+                        Director
+                    </button>
+                    <mat-divider style="width: 100%;"></mat-divider>
+                    <button mat-button (click)="openSummaryDialog(movie.Title, movie.Description)">
+                        Summary
+                    </button>
+                <!-- </div> -->
+            </mat-card-actions>
+        </mat-card-content>
     </mat-card>
 </div>
