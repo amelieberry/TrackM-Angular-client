@@ -12,7 +12,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$TrackM-Angular-client-primary: mat.define-palette(mat.$purple-palette);
+$TrackM-Angular-client-primary: mat.define-palette(mat.$purple-palette, 500, 200, A200);
 $TrackM-Angular-client-accent: mat.define-palette(mat.$green-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
@@ -37,3 +37,4 @@ $TrackM-Angular-client-theme: mat.define-dark-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; letter-spacing: 0.8px; }
+.mat-divider {border-top-color: mat.get-color-from-palette($TrackM-Angular-client-accent, default)}
