@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Angular Material Imports
-import { MatDialogRef } from '@angular/material/dialog'; // to close dialog on success
 import { MatSnackBar } from '@angular/material/snack-bar'; // to display notifications back to user
 
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -21,7 +20,6 @@ export class UserLoginFormComponent {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public snackBar: MatSnackBar,
     private router: Router
   ) { }
@@ -41,8 +39,7 @@ export class UserLoginFormComponent {
       // set user in local storage
       localStorage.setItem('username', result.user.Username);
       localStorage.setItem('token', result.token);
-
-      this.dialogRef.close();
+      
       console.log(result);
       this.snackBar.open('Logged-in successfully!', 'OK', {
         duration: 2000

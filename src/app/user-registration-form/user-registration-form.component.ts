@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 // Angular Material Imports
-import { MatDialogRef } from '@angular/material/dialog'; // to close dialog on success
 import { MatSnackBar } from '@angular/material/snack-bar'; // to display notifications back to user
 
 import { FetchApiDataService } from '../fetch-api-data.service';
@@ -22,7 +21,6 @@ export class UserRegistrationFormComponent implements OnInit {
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
     public snackBar: MatSnackBar
   ) { }
 
@@ -37,7 +35,7 @@ export class UserRegistrationFormComponent implements OnInit {
    */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
-      this.dialogRef.close();
+
       console.log(result);
       this.snackBar.open(result, 'OK', {
         duration: 2000
