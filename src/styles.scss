@@ -35,6 +35,29 @@ $TrackM-Angular-client-theme: mat.define-dark-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; letter-spacing: 0.8px; }
-.mat-divider {border-top-color: mat.get-color-from-palette($TrackM-Angular-client-accent, default)}
+html, body { 
+  height: 100%; 
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  letter-spacing: 0.8px; 
+}
+.mat-divider {
+  border-top-color: mat.get-color-from-palette($TrackM-Angular-client-accent, default)
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-input-field {
+  width: 280px;
+}
+
+.form-buttons {
+  width: 280px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
