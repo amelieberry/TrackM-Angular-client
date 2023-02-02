@@ -11,12 +11,18 @@
     justify-content: space-between;
 }
 
+.movie-card-img {
+    display: flex;
+    align-items: center;
+}
+
 .movie-card-header {
-    padding-bottom: 16px;
+    padding: 0;
+    height: 72px;
     text-align: center;
     display: flex;
+    align-items: center;
     justify-content: center;
-    // font-weight: 600;
 }
 
 .movie-card-content {
@@ -25,6 +31,7 @@
     justify-content: space-between;
     padding-top: 16px;
     background-color: #212121;
+    height: 297px;
 }
 
 .movie-card-actions-container {
