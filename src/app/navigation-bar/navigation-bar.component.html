@@ -1,5 +1,5 @@
 <mat-toolbar class="navbar">
-    <div id="logo-container">
+    <div (click)="navigateMovies()" id="logo-container">
         <div id="t-top">
             <div class="dotted-line-top"></div>
         </div>
@@ -10,6 +10,6 @@
             <p>M</p>
         </div>
     </div>
-    <button mat-button>Profile</button>
+    <button mat-button (click)="navigateProfile()">Profile</button>
     <button mat-button (click)="logoutUser()">Logout</button>
 </mat-toolbar>
