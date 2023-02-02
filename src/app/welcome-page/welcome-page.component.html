@@ -1,32 +1,29 @@
 <div class="main-page mat-app-background">
-    <h1>Welcome to Track'M</h1>
-    <div id="logo-container">
-      <div id="t-top">
-        <div class="dotted-line-top"></div>
-      </div>
-      <div id="main-clapper">
-        <div id="t-leg">
-          <div class="dotted-line-bottom"></div>
-        </div>
-        <p>M</p>
-      </div>
+  <div id="logo-container">
+    <div id="t-top">
+      <div class="dotted-line-top"></div>
     </div>
-    <div class="welcome-actions">
-        <button 
-            mat-raised-button 
-            (click)="openUserRegistrationDialog()" 
-            style="margin-right: 10px; width: 90px"
-            color="primary"
-        >
-            Sign Up
-        </button>
-        <button 
-            mat-raised-button 
-            (click)="openUserLoginDialog()" 
-            style="margin-left: 10px; width: 90px" 
-            color="primary"
-        >
-            Log In
-        </button>
+    <div id="main-clapper">
+      <div id="t-leg">
+        <div class="dotted-line-bottom"></div>
+      </div>
+      <p>M</p>
     </div>
   </div>
+  <h1>Welcome to Track'M</h1>
+  <mat-divider style="width: 70%; min-width: 300px;"></mat-divider>
+  <div class="welcome-actions">
+    <div class="welcome-actions-section">
+      <h3>Create an Account</h3>
+      <button mat-raised-button (click)="openUserRegistrationDialog()" style="width: 280px" color="primary">
+        Sign Up
+      </button>
+    </div>
+    <div class="welcome-actions-section">
+      <h3>Log into your Account</h3>
+      <button mat-raised-button (click)="openUserLoginDialog()" style="width: 280px" color="primary">
+        Log In
+      </button>
+    </div>
+  </div>
+</div>

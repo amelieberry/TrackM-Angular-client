@@ -25,11 +25,11 @@
 
 #logo-container {
     width: 150px;
-    height: 160px;
+    height: 130px;
     color: #eee;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
   }
 
@@ -83,6 +83,17 @@
     border-left: 4.7px dashed white;
     height: 80px;
   }
+
+  .welcome-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .welcome-actions-section {
+  margin: 10px;
+ }
 
   @keyframes skew {
     0% {
