@@ -10,6 +10,8 @@
             <p>M</p>
         </div>
     </div>
-    <button mat-button (click)="navigateProfile()">Profile</button>
-    <button mat-button (click)="logoutUser()">Logout</button>
+    <div>
+        <button mat-button (click)="navigateProfile()"><mat-icon>account_circle</mat-icon>Profile</button>
+        <button mat-button (click)="logoutUser()"><mat-icon>logout</mat-icon>Logout</button>
+    </div>
 </mat-toolbar>
