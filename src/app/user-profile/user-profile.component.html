@@ -1,1 +1,26 @@
-<p>user-profile works!</p>
+<app-navigation-bar></app-navigation-bar>
+<div class="profile-container">
+    <h1 style="margin-top: 90px;">Hello Name!</h1>
+    <mat-divider class="profile-divider"></mat-divider>
+    <div style="width: 100%;">
+        <h3>Update your Info</h3>
+        <form style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <mat-form-field class="update-input-field">
+                <input matInput placeholder="Username" type="text" name="Username" required>
+            </mat-form-field>
+            <mat-form-field class="update-input-field">
+                <input matInput type="password" placeholder="Password" name="Password" required>
+            </mat-form-field>
+            <mat-form-field class="update-input-field">
+                <input matInput type="email" placeholder="Email" name="Email" required>
+            </mat-form-field>
+            <mat-form-field class="update-input-field">
+                <input matInput type="date" placeholder="Birthday" name="Birthday">
+            </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" class="profile-buttons">Update</button>
+        <mat-divider class="profile-divider"></mat-divider>
+        <h3>Delete your Profile</h3>
+        <button mat-raised-button color="warn" class="profile-buttons">Delete</button>
+    </div>
+</div>

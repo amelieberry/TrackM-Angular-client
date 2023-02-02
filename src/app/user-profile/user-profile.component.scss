@@ -1,0 +1,23 @@
+.profile-container {
+    width: 100%; 
+    text-align: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.profile-divider {
+    width: 70%; 
+    margin: 0 auto;
+    min-width: 300px;
+}
+
+.update-input-field {
+    width: 280px;
+}
+
+.profile-buttons {
+    width: 280px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
