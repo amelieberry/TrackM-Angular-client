@@ -1,4 +1,4 @@
-<div class="main-page mat-app-background">
+<div class="main-page">
   <div id="logo-container">
     <div id="t-top">
       <div class="dotted-line-top"></div>
@@ -11,19 +11,14 @@
     </div>
   </div>
   <h1>Welcome to Track'M</h1>
-  <mat-divider style="width: 70%; min-width: 300px;"></mat-divider>
   <div class="welcome-actions">
-    <div class="welcome-actions-section">
-      <h3>Create an Account</h3>
-      <button mat-raised-button (click)="openUserRegistrationDialog()" style="width: 280px" color="primary">
-        Sign Up
-      </button>
-    </div>
-    <div class="welcome-actions-section">
-      <h3>Log into your Account</h3>
-      <button mat-raised-button (click)="openUserLoginDialog()" style="width: 280px" color="primary">
-        Log In
-      </button>
-    </div>
+    <mat-tab-group style="width: 100%">
+      <mat-tab label="Log In">
+        <app-user-login-form></app-user-login-form>
+      </mat-tab>
+      <mat-tab label="Sign In">
+        <app-user-registration-form></app-user-registration-form>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>
