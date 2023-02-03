@@ -47,11 +47,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   /**
-   * 
+   * Update the user info using input value (updatedUser)
+   * If input is empty, assign current user value (user), otherwise, assign updated input value (updatedUser)
+   * set localStorage username to updated username, inform user, then reload
+   * @function updateUserInfo
    */
   updateUserInfo() {
-    console.log('updateUserInfo',this.updatedUser);
-
     this.updatedUser = {
       Username: this.updatedUser.Username === "" || null ? this.user.Username : this.updatedUser.Username,
       Password: this.updatedUser.Password === "" || null ? this.user.Password : this.updatedUser.Password,
@@ -71,8 +72,22 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // delete user
-  // deleteUserInfo() {
-
-  // }
+  /**
+   * Get a confirmation from the user, if given, navigate to the welcome page
+   * Inform the user of the changes and delete user data (deleteUser)
+   * @function deleteUserInfo
+   */
+  deleteUserInfo(): void {
+    if (confirm('Your account will be permanently deleted, are you sure you want to continue?')) {
+      this.router.navigate(['welcome']).then(() => {
+        this.snackBar.open('Account Deleted.', 'OK', {
+          duration: 5000,
+        });
+      });
+      this.fetchApiData.deleteUser().subscribe((result) => {
+        console.log(result);
+        localStorage.clear();
+      });
+    }
+  }
 }
