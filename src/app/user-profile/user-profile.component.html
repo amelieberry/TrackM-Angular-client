@@ -6,19 +6,53 @@
             <h3>Update your Info</h3>
             <form style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <mat-form-field class="update-input-field">
-                    <input matInput placeholder={{user.Username}} type="text" name="Username" required>
+                    <input 
+                        matInput
+                        [(ngModel)]="updatedUser.Username"
+                        value="{{ updatedUser.Username }}" 
+                        placeholder="{{ user.Username }}" 
+                        type="text" 
+                        name="Username"
+                    >
                 </mat-form-field>
                 <mat-form-field class="update-input-field">
-                    <input matInput type="password" placeholder="*******" name="Password" required>
+                    <input 
+                        matInput 
+                        [(ngModel)]="updatedUser.Password"
+                        type="password" 
+                        placeholder="******" 
+                        name="Password"
+                    >
                 </mat-form-field>
                 <mat-form-field class="update-input-field">
-                    <input matInput type="email" placeholder={{user.Email}} name="Email" required>
+                    <input 
+                        matInput 
+                        type="email" 
+                        [(ngModel)]="updatedUser.Email"
+                        value="{{ updatedUser.Email }}" 
+                        placeholder="{{ user.Email }}" 
+                        name="Email"
+                    >
                 </mat-form-field>
                 <mat-form-field class="update-input-field">
-                    <input matInput type="date" placeholder={{user.Birthday}} name="Birthday">
+                    <input 
+                        matInput
+                        [(ngModel)]="updatedUser.Birthday"
+                        value="{{ updatedUser.Birthday | date }}" 
+                        placeholder="{{user.Birthday}}" 
+                        type="date" 
+                        name="Birthday"
+                    >
                 </mat-form-field>
             </form>
-            <button mat-raised-button color="primary" class="form-buttons">Update</button>
+            <button 
+                mat-raised-button 
+                (click)="updateUserInfo()"
+                color="primary" 
+                class="form-buttons"
+            >
+                Update
+            </button>
         </mat-tab>
         <mat-tab label="Delete Profile">
             <h3>Delete your Profile</h3>
