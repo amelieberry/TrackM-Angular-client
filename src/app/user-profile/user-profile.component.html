@@ -56,7 +56,14 @@
         </mat-tab>
         <mat-tab label="Delete Profile">
             <h3>Delete your Profile</h3>
-            <button mat-raised-button color="warn" class="form-buttons">Delete</button>
+            <button 
+                mat-raised-button
+                (click)="deleteUserInfo()" 
+                color="warn" 
+                class="form-buttons"
+            >
+                Delete
+            </button>
         </mat-tab>
     </mat-tab-group>
 </div>
