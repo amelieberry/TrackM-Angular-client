@@ -32,8 +32,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * TypeDoc
 
 ## Links
-Live App: https://amelieberry.github.io/TrackM-Angular-client/
-API: https://trackm.onrender.com/
+* Live App: https://amelieberry.github.io/TrackM-Angular-client/
+* API: https://trackm.onrender.com/
 
 ## Development server
 
