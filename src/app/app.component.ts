@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingSpinnerService } from './loading-spinner.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TrackM-Angular-client';  
+
+  constructor( public spinnerService: LoadingSpinnerService) {}
 }
