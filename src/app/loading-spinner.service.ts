@@ -9,6 +9,7 @@ import { BehaviorSubject } from 'rxjs';
  * Allow components in the application to read and update visibility status
  */
 export class LoadingSpinnerService {
+  count = 0;
   visibility: BehaviorSubject<boolean>
 
   constructor() {
@@ -17,9 +18,13 @@ export class LoadingSpinnerService {
 
   show() {
     this.visibility.next(true);
+    this.count++;
   }
 
   hide() {
-    this.visibility.next(false);
+    this.count--;
+    if (this.count === 0) {
+      this.visibility.next(false);
+    }
   }
 }
