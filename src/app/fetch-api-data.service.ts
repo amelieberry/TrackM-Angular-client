@@ -12,7 +12,9 @@ const apiUrl = 'https://trackm.onrender.com/';
 export class FetchApiDataService {
   // inject HttpClient Module to the constructor params to provide HttpClient to the entire class
   // Available via this.http
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
   /**
    * User registration
@@ -296,12 +298,14 @@ export class FetchApiDataService {
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('Some error occured:', error.error.message);
-    } else {
+      return throwError(() => new Error(error.error.message));
+    } else if (error.error.errors) {
       console.error(
         `Error Status Code ${error.status},` +
         `Error body is: ${error.error}`
       );
-    }
-    return throwError(() => new Error('Something happened. Try again later.'))
+    } else {
+      return throwError(() => new Error('Something happened. Try again later.'))
+    } 
   }
 }
